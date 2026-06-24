@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wireframe</title>
+    <style>
+      /* CSS tối giản chỉ để tạo khung hộp */
+      body {
+        font-family: Arial, sans-serif;
+        color: #333;
+        padding: 20px;
+      }
+      .wireframe-container {
+        max-width: 900px;
+        margin: 0 auto;
+        border: 2px solid #000;
+        padding: 10px;
+      }
+      .box {
+        border: 1px solid #333;
+        background-color: #f4f4f4;
+        padding: 20px;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+      /* Layout ngang cho Navbar và Footer */
+      .flex-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      /* Layout chia 3 cột cho phần Giới thiệu */
+      .grid-3-cols {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-top: 15px;
+      }
+      .col {
+        border: 1px dashed #666;
+        padding: 40px 10px;
+        background-color: #eaeaea;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wireframe-container">
+      <div class="box flex-row">
+        <div><strong>[Logo]</strong></div>
+        <div>
+          Trang Chủ - Khám Phá - Ẩm Thực - Lịch Trình - Mua Sắm - Liên Hệ
+        </div>
+      </div>
+
+      <div
+        class="box"
+        style="
+          height: 250px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <strong>[Khung Ảnh Banner Tự Chuyển]</strong><br />
+        (Tiêu đề chính nằm giữa ảnh)
+      </div>
+
+      <div class="box">
+        <strong>[Tiêu đề phụ: Giới thiệu sơ lược]</strong>
+        <div class="grid-3-cols">
+          <div class="col">[Cột 1: Lịch sử Cần Thơ]</div>
+          <div class="col">[Cột 2: Điểm nổi bật]</div>
+          <div class="col">[Cột 3: Tin tức & Sự kiện]</div>
+        </div>
+      </div>
+
+      <div class="box flex-row" style="text-align: left">
+        <div><strong>Tên web</strong><br /></div>
+        <div style="text-align: right">thông tin liên hệ</div>
+      </div>
+    </div>
+  </body>
+</html>

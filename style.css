@@ -1,0 +1,229 @@
+/* ================= CÀI ĐẶT CHUNG (RESET & TYPOGRAPHY) ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Sử dụng font chữ Poppins theo yêu cầu */
+}
+
+body {
+    background-color: #FFFFFF; /* Màu nền trắng theo yêu cầu */
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* Quy định kích thước chữ nghiêm ngặt theo yêu cầu đề bài */
+.main-title {
+    font-size: 36px; /* Tiêu đề chính: 36px */
+    font-weight: 700;
+}
+
+.sub-title {
+    font-size: 24px; /* Tiêu đề phụ: 24px */
+    font-weight: 600;
+    color: #0EA5E9; /* Màu xanh dương chủ đạo */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+p, a, li {
+    font-size: 16px; /* Nội dung: 16px */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ================= NAVBAR (Thanh điều hướng) ================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0EA5E9; /* Màu xanh dương chủ đạo theo yêu cầu */
+    padding: 15px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo h1 {
+    color: #FFFFFF; /* Màu chữ trắng tương phản */
+    font-size: 24px;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.menu ul li a {
+    color: #FFFFFF; /* Màu chữ menu trắng */
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Hiệu ứng khi hover hoặc link đang active */
+.menu ul li a:hover, .menu ul li a.active {
+    background-color: #FFFFFF;
+    color: #0EA5E9; /* Đổi sang nền trắng chữ xanh */
+}
+
+/* ================= BANNER / SLIDER (Chuyển ảnh JS) ================= */
+.banner-container {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Kích thước chuẩn hiển thị trên Laptop */
+    overflow: hidden;
+    background-color: #000;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Hiệu ứng mờ dần (fade) mượt mà */
+}
+
+.slide.active {
+    opacity: 1; /* Hiện slide có class active */
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Giữ tỉ lệ ảnh không bị móp méo */
+}
+
+.slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #FFFFFF;
+    width: 80%;
+    background: rgba(0, 0, 0, 0.4); /* Lớp nền tối mờ giúp nổi bật chữ */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* ================= SECTION GIỚI THIỆU SƠ LƯỢC ================= */
+.intro-section {
+    padding: 60px 0;
+    background-color: #FFFFFF;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Chia làm 3 cột bằng nhau trên Laptop */
+    gap: 30px;
+}
+
+.intro-card {
+    background-color: #FFFFFF;
+    border: 2px solid #0EA5E9; /* Viền xanh dương đồng bộ thương hiệu */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(14, 165, 233, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.intro-card:hover {
+    transform: translateY(-5px); /* Hiệu ứng nổi lên nhẹ khi hover */
+}
+
+.intro-card h3 {
+    font-size: 20px;
+    color: #0EA5E9;
+    margin-bottom: 15px;
+}
+
+.intro-card p {
+    color: #555555;
+    text-align: justify;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    background-color: #0EA5E9; /* Màu nền xanh dương thống nhất */
+    color: #FFFFFF; /* Màu chữ trắng thống nhất */
+    padding: 40px 50px 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.footer-contact h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-contact p {
+    margin-bottom: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+}
+
+/* ================= RESPONSIVE DESIGN (Hỗ trợ Laptop & Điện thoại) ================= */
+@media (max-width: 768px) {
+    /* Điều chỉnh Navbar cho Mobile */
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+    
+    .menu ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .menu ul li a {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+
+    /* Co giãn kích thước Slider trên điện thoại */
+    .banner-container {
+        height: 300px;
+    }
+
+    .main-title {
+        font-size: 24px; /* Thu nhỏ tiêu đề trên mobile để tránh vỡ khung */
+    }
+
+    /* Grid giới thiệu chuyển từ 3 cột thành 1 cột */
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Footer chuyển về dạng căn giữa */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}

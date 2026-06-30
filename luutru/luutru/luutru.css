@@ -1,0 +1,67 @@
+.hero--accommodation {
+    background-image: url("../image/background.jpg");
+}
+
+.accommodation__section-title {
+    margin-top: 40px;
+}
+
+.accommodation-grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.accommodation-card {
+    display: block;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.accommodation-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.accommodation-card:focus-visible {
+    outline: 3px solid #0EA5E9;
+    outline-offset: 4px;
+}
+
+.accommodation-card__image {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.accommodation-card__content {
+    padding: 20px;
+}
+
+.accommodation-card__title {
+    color: #0EA5E9;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.accommodation-card__text {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.accommodation-card__text strong {
+    color: #0f172a;
+}
+
+@media (max-width: 768px) {
+    .accommodation-grid {
+        grid-template-columns: 1fr;
+    }
+}

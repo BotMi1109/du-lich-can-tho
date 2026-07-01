@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  color: #333;
+}
+
+.hero {
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: 20px;
+}
+
+.hero__content {
+  background: rgba(0, 0, 0, 0.55);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  padding: 30px 40px;
+  max-width: 900px;
+  text-align: center;
+  backdrop-filter: blur(4px);
+}
+
+.hero__title {
+  color: white;
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.hero__text {
+  color: white;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.page-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+.page-container h2 {
+  font-size: 28px;
+  color: #0ea5e9;
+  margin-bottom: 25px;
+  margin-top: 40px;
+}
+
+.button {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: none;
+}
+
+.button--back {
+  display: inline-block;
+  margin-bottom: 25px;
+  background: #0ea5e9;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.button--back:hover {
+  background: #0284c7;
+}
+
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 28px;
+  }
+
+  .page-container h2 {
+    font-size: 24px;
+  }
+}

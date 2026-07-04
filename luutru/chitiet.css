@@ -1,10 +1,19 @@
-.detail-page .hero::before{
-    content:"";
+.detail-page .hero {
+    position: relative;
+    overflow: hidden;
+}
 
-    position:absolute;
-    inset:0;
+.detail-page .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.4);
+}
 
-    background:rgba(0,0,0,0.4);
+.detail-page .hero__content {
+    position: relative;
+    z-index: 2;
 }
 
 .detail-gallery{

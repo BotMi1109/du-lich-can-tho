@@ -1,5 +1,5 @@
 .hero--accommodation {
-    background-image: url("../image/background.jpg");
+    background-image: url("image/background.jpg");
 }
 
 .accommodation__section-title {
@@ -8,8 +8,8 @@
 
 .accommodation-grid {
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); */
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    /*grid-template-columns: repeat(4, 1fr);*/
     gap: 30px;
 }
 

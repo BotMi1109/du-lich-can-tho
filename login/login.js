@@ -1,138 +1,124 @@
 (() => {
-    const form = document.querySelector('#login-form');
-    const emailInput = document.querySelector('#email');
-    const passwordInput = document.querySelector('#password');
-    const rememberInput = document.querySelector('#remember');
-    const toggleButton = document.querySelector('[data-password-toggle]');
-    const submitButton = document.querySelector('.login-form__submit');
-    const submitText = document.querySelector('.login-form__submit-text');
-    const toast = document.querySelector('[data-toast]');
+  const form = document.querySelector("#login-form");
+  const emailInput = document.querySelector("#email");
+  const passwordInput = document.querySelector("#password");
+  const rememberInput = document.querySelector("#remember");
+  const toggleButton = document.querySelector("[data-password-toggle]");
+  const submitButton = document.querySelector(".login-form__submit");
+  const submitText = document.querySelector(".login-form__submit-text");
+  const toast = document.querySelector("[data-toast]");
 
-    const storageKey = 'canthoLoginEmail';
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!form || !emailInput || !passwordInput || !rememberInput) {
+    return;
+  }
 
-    const messages = {
-        email: 'Vui lòng nhập email hợp lệ.',
-        password: 'Mật khẩu phải có tối thiểu 6 ký tự.'
-    };
+  const { clearFormError, emailPattern, initPasswordToggles, setFormError, setLoadingState, showToast } =
+    window.CanThoUI;
 
-    const setError = (input, message) => {
-        const errorElement = document.querySelector(`#${input.id}-error`);
-        input.classList.add('is-error');
-        input.setAttribute('aria-invalid', 'true');
-        errorElement.textContent = message;
-    };
+  const storageKey = "canthoLoginEmail";
+  const messages = {
+    email: "Vui lòng nhập email hợp lệ.",
+    password: "Mật khẩu phải có tối thiểu 6 ký tự.",
+  };
 
-    const clearError = (input) => {
-        const errorElement = document.querySelector(`#${input.id}-error`);
-        input.classList.remove('is-error');
-        input.removeAttribute('aria-invalid');
-        errorElement.textContent = '';
-    };
+  const validateEmail = () => {
+    const isValid = emailPattern.test(emailInput.value.trim());
 
-    const validateEmail = () => {
-        const isValid = emailPattern.test(emailInput.value.trim());
+    if (!isValid) {
+      setFormError(emailInput, messages.email);
+      return false;
+    }
 
-        if (!isValid) {
-            setError(emailInput, messages.email);
-            return false;
-        }
+    clearFormError(emailInput);
+    return true;
+  };
 
-        clearError(emailInput);
-        return true;
-    };
+  const validatePassword = () => {
+    const isValid = passwordInput.value.trim().length >= 6;
 
-    const validatePassword = () => {
-        const isValid = passwordInput.value.trim().length >= 6;
+    if (!isValid) {
+      setFormError(passwordInput, messages.password);
+      return false;
+    }
 
-        if (!isValid) {
-            setError(passwordInput, messages.password);
-            return false;
-        }
+    clearFormError(passwordInput);
+    return true;
+  };
 
-        clearError(passwordInput);
-        return true;
-    };
+  const syncRememberedEmail = () => {
+    if (rememberInput.checked) {
+      localStorage.setItem(storageKey, emailInput.value.trim());
+      return;
+    }
 
-    const setLoading = (isLoading) => {
-        submitButton.classList.toggle('is-loading', isLoading);
-        submitButton.disabled = isLoading;
-        submitText.textContent = isLoading ? 'Đang đăng nhập...' : 'ĐĂNG NHẬP';
-    };
+    localStorage.removeItem(storageKey);
+  };
 
-    const showToast = () => {
-        toast.classList.add('is-visible');
-    };
+  const fillRememberedEmail = () => {
+    const rememberedEmail = localStorage.getItem(storageKey);
 
-    const syncRememberedEmail = () => {
-        if (rememberInput.checked) {
-            localStorage.setItem(storageKey, emailInput.value.trim());
-            return;
-        }
+    if (rememberedEmail) {
+      emailInput.value = rememberedEmail;
+      rememberInput.checked = true;
+    }
+  };
 
-        localStorage.removeItem(storageKey);
-    };
+  emailInput.addEventListener("input", () => {
+    if (emailInput.value.trim() !== "") {
+      validateEmail();
+      return;
+    }
 
-    const fillRememberedEmail = () => {
-        const rememberedEmail = localStorage.getItem(storageKey);
+    clearFormError(emailInput);
+  });
 
-        if (rememberedEmail) {
-            emailInput.value = rememberedEmail;
-            rememberInput.checked = true;
-        }
-    };
+  passwordInput.addEventListener("input", () => {
+    if (passwordInput.value.trim() !== "") {
+      validatePassword();
+      return;
+    }
 
-    emailInput.addEventListener('input', () => {
-        if (emailInput.value.trim() !== '') {
-            validateEmail();
-        } else {
-            clearError(emailInput);
-        }
-    });
+    clearFormError(passwordInput);
+  });
 
-    passwordInput.addEventListener('input', () => {
-        if (passwordInput.value.trim() !== '') {
-            validatePassword();
-        } else {
-            clearError(passwordInput);
-        }
-    });
+  rememberInput.addEventListener("change", syncRememberedEmail);
 
-    rememberInput.addEventListener('change', syncRememberedEmail);
+  initPasswordToggles([toggleButton], () => passwordInput);
 
-    toggleButton.addEventListener('click', () => {
-        const isPasswordVisible = passwordInput.type === 'text';
-        const icon = toggleButton.querySelector('i');
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-        passwordInput.type = isPasswordVisible ? 'password' : 'text';
-        toggleButton.setAttribute('aria-label', isPasswordVisible ? 'Hiện mật khẩu' : 'Ẩn mật khẩu');
-        icon.classList.toggle('fa-eye', isPasswordVisible);
-        icon.classList.toggle('fa-eye-slash', !isPasswordVisible);
-        passwordInput.focus();
-    });
+    const isEmailValid = validateEmail();
+    const isPasswordValid = validatePassword();
 
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
+    if (!isEmailValid || !isPasswordValid) {
+      return;
+    }
 
-        const isEmailValid = validateEmail();
-        const isPasswordValid = validatePassword();
+    syncRememberedEmail();
+    setLoadingState(
+      submitButton,
+      submitText,
+      true,
+      "Đang đăng nhập...",
+      "ĐĂNG NHẬP"
+    );
 
-        if (!isEmailValid || !isPasswordValid) {
-            return;
-        }
+    window.setTimeout(() => {
+      showToast(toast);
+    }, 500);
 
-        syncRememberedEmail();
-        setLoading(true);
+    window.setTimeout(() => {
+      setLoadingState(
+        submitButton,
+        submitText,
+        false,
+        "Đang đăng nhập...",
+        "ĐĂNG NHẬP"
+      );
+      window.location.href = "../home/index.html";
+    }, 1500);
+  });
 
-        window.setTimeout(() => {
-            showToast();
-        }, 500);
-
-        window.setTimeout(() => {
-            setLoading(false);
-            window.location.href = '../index.html';
-        }, 1500);
-    });
-
-    fillRememberedEmail();
+  fillRememberedEmail();
 })();

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -7,15 +7,32 @@
 
     <title>Đăng nhập - Du lịch Cần Thơ</title>
 
-    <link rel="shortcut icon" href="../image/android-chrome-512x512.png" type="image/png">
+    <link rel="icon" type="image/png" href="../image/android-chrome-512x512.png">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="auth.css">
     <link rel="stylesheet" href="login.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body class="login-page">
-    <section class="hero hero--login" aria-labelledby="login-hero-title">
+    <!--NAVBAR-->
+    <header class="navbar">
+      <div class="logo">
+        <span class="logo__text">CanTho Travel</span>
+      </div>
+      <nav class="menu" aria-label="Điều hướng chính">
+        <ul>
+          <li><a href="../home/index.html">Trang Chủ</a></li>
+          <li><a href="../khampha/dulich.html">Khám Phá</a></li>
+          <li><a href="../amthuc/amthuc.html">Ẩm Thực</a></li>
+          <li><a href="../lichtrinh/lichtrinh.html">Lịch Trình</a></li>
+          <li><a href="../luutru/luutru.html">Lưu Trú</a></li>
+          <li><a href="../login/login.html" class="active">Đăng Nhập</a></li>
+        </ul>
+      </nav>
+    </header>
+<section class="hero hero--login" aria-labelledby="login-hero-title">
         <div class="hero__content">
             <h1 class="hero__title" id="login-hero-title">Đăng nhập</h1>
             <p class="hero__text">
@@ -80,7 +97,30 @@
     <div class="login-toast" role="status" aria-live="polite" aria-atomic="true" data-toast>
         Đăng nhập thành công!
     </div>
-
-    <script src="login.js"></script>
+    <!--FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h2>CanTho Travel</h2>
+          <p>Hành trình khám phá vẻ đẹp Tây Đô.</p>
+        </div>
+        <div class="footer-contact">
+          <h3>Thông Tin Liên Hệ</h3>
+          <p>Email: nhom4@gmail.com</p>
+          <p>SĐT: 0123456789</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>@ 2026 nhom 4</p>
+      </div>
+    </footer>
+<script src="../js/main.js"></script>
+<script src="login.js"></script>
 </body>
 </html>
+
+
+
+
+
+

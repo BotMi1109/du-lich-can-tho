@@ -1,136 +1,88 @@
-.hero {
+.hero--food {
   background-image: url("image/am-thuc.jpg");
 }
 
-/* Grid */
-.card-grid {
+.amthuc-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
 }
 
-/* Card */
-
-.card {
-  background: white;
-
-  border-radius: 15px;
-
-  overflow: hidden;
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-
-  transition: 0.3s;
+.amthuc-card {
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
 }
 
-.card:hover {
+.amthuc-card:focus-visible {
   transform: translateY(-8px);
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-card);
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
 }
 
-/* Ảnh */
-
-.card img {
-  width: 100%;
-
+.amthuc-card__image {
   height: 260px;
-
-  object-fit: cover;
 }
 
-/* Nội dung */
-
-.card-content {
-  padding: 20px;
-}
-
-.card-content h3 {
-  color: #0ea5e9;
-
+.amthuc-card__title {
   font-size: 24px;
-
-  margin-bottom: 12px;
 }
 
-.card-content p {
+.amthuc-card__text {
   font-size: 16px;
-
   line-height: 1.8;
-
-  margin-bottom: 10px;
 }
 
-/* Responsive */
-
-@media (max-width: 768px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Modal */
-
-.modal {
+.amthuc-modal {
   display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
   background: rgba(0, 0, 0, 0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
 }
 
-.modal-content {
-  background: white;
+.amthuc-modal.is-open {
+  display: flex;
+}
+
+.amthuc-modal__content {
   width: 90%;
   max-width: 700px;
-  border-radius: 15px;
-  padding: 25px;
-  text-align: left;
-  position: relative;
   overflow: hidden;
+  text-align: left;
 }
 
-.modal-content img {
-  width: 100%;
+.amthuc-modal__image {
   height: 350px;
-  object-fit: cover;
-  border-radius: 10px;
+  border-radius: var(--radius-lg);
   margin-bottom: 20px;
 }
 
-.modal-content h2 {
-  color: #0ea5e9;
+.amthuc-modal__title {
+  color: var(--color-primary);
   margin-bottom: 15px;
 }
 
-.modal-content p {
+.amthuc-modal__text {
   line-height: 1.8;
 }
 
-/* Nút X */
-.close {
+.amthuc-modal__close {
+  position: static;
   width: 35px;
   height: 35px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 22px;
-  font-weight: bold;
-
-  background: #eee;
-  border: 1px solid #ccc;
-
-  cursor: pointer;
   margin-left: auto;
+  border: 1px solid var(--color-border-muted);
+  background: var(--color-control);
 }
 
-.close:hover {
-  background: #ddd;
+.amthuc-modal__close:hover,
+.amthuc-modal__close:focus-visible {
+  background: var(--color-control-hover);
+}
+
+@media (max-width: 480px) {
+  .amthuc-grid {
+    grid-template-columns: 1fr;
+  }
 }

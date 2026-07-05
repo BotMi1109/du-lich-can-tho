@@ -1,332 +1,85 @@
-.register-page {
-    min-height: 100vh;
-    background: #f5f7fa;
-}
-
 .hero--register {
-    min-height: 340px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("image/register-banner.jpg");
-}
-
-.hero--register .hero__content {
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    backdrop-filter: none;
-}
-
-.register-main {
-    width: 90%;
-    max-width: 1200px;
-    margin: 50px auto;
-    display: flex;
-    justify-content: center;
+  min-height: 340px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("image/register-banner.jpg");
 }
 
 .register-card {
-    width: 520px;
-    max-width: 100%;
-    padding: 40px;
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-    text-align: center;
-    animation: registerFadeUp 0.65s ease both;
-}
-
-.register-card__avatar {
-    width: 82px;
-    height: 82px;
-    margin: 0 auto 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: #e0f2fe;
-    color: #0EA5E9;
-    font-size: 58px;
+  width: 520px;
 }
 
 .register-card__title {
-    color: #0f172a;
-    font-size: 26px;
-    margin-bottom: 28px;
-}
-
-.register-form {
-    text-align: left;
-}
-
-.register-form__group {
-    margin-bottom: 16px;
-}
-
-.register-form__label {
-    display: inline-block;
-    margin-bottom: 8px;
-    color: #334155;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.register-form__field {
-    position: relative;
-}
-
-.register-form__icon {
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    color: #94a3b8;
-    transform: translateY(-50%);
-    pointer-events: none;
-    transition: 0.3s;
-}
-
-.register-form__input {
-    width: 100%;
-    height: 50px;
-    border: 1px solid #dbe3ec;
-    border-radius: 10px;
-    padding: 0 16px 0 46px;
-    color: #0f172a;
-    font: inherit;
-    outline: none;
-    background: #fff;
-    transition: 0.3s;
-}
-
-.register-form__input--password {
-    padding-right: 48px;
-}
-
-.register-form__input:hover {
-    border-color: #93c5fd;
-    box-shadow: 0 4px 14px rgba(14, 165, 233, 0.08);
-}
-
-.register-form__input:focus {
-    border-color: #0d6efd;
-    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.12);
-}
-
-.register-form__field:focus-within .register-form__icon {
-    color: #0d6efd;
-}
-
-.register-form__input.is-error {
-    border-color: #dc2626;
-    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
-}
-
-.register-form__error {
-    min-height: 20px;
-    margin-top: 6px;
-    color: #dc2626;
-    font-size: 13px;
-    line-height: 1.5;
+  margin-bottom: 28px;
 }
 
 .register-form__error--check {
-    margin-left: 24px;
-}
-
-.register-form__toggle {
-    position: absolute;
-    top: 50%;
-    right: 12px;
-    width: 36px;
-    height: 36px;
-    border: 0;
-    border-radius: 10px;
-    background: transparent;
-    color: #64748b;
-    cursor: pointer;
-    transform: translateY(-50%);
-    transition: 0.3s;
-}
-
-.register-form__toggle:hover,
-.register-form__toggle:focus-visible {
-    background: #e0f2fe;
-    color: #0d6efd;
+  margin-left: 24px;
 }
 
 .register-form__terms {
-    margin: 2px 0 24px;
+  margin: 2px 0 24px;
 }
 
 .register-form__check {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    color: #475569;
-    cursor: pointer;
-    font-size: 14px;
-    line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .register-form__check input {
-    width: 16px;
-    height: 16px;
-    margin-top: 3px;
-    flex: 0 0 auto;
-    accent-color: #0d6efd;
-}
-
-.register-form__link {
-    color: #0d6efd;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.register-form__link:hover {
-    color: #084298;
-    text-decoration: underline;
-}
-
-.register-form__submit {
-    width: 100%;
-    height: 52px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border: 0;
-    border-radius: 10px;
-    background: #0d6efd;
-    color: #fff;
-    font: inherit;
-    font-weight: 700;
-    letter-spacing: 0;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.register-form__submit:hover {
-    background: #0b5ed7;
-    transform: translateY(-2px) scale(1.01);
-    box-shadow: 0 8px 18px rgba(13, 110, 253, 0.24);
-}
-
-.register-form__submit:disabled {
-    cursor: wait;
-    transform: none;
-    opacity: 0.86;
-}
-
-.register-form__spinner {
-    display: none;
-    width: 18px;
-    height: 18px;
-    border: 2px solid rgba(255, 255, 255, 0.45);
-    border-top-color: #fff;
-    border-radius: 50%;
-    animation: registerSpin 0.75s linear infinite;
-}
-
-.register-form__submit.is-loading .register-form__spinner {
-    display: inline-block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  margin-top: 3px;
+  accent-color: var(--color-primary);
 }
 
 .register-form__login {
-    margin-top: 22px;
-    color: #64748b;
-    line-height: 1.7;
-    text-align: center;
+  margin-top: 22px;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  text-align: center;
 }
 
 .register-toast {
-    position: fixed;
-    top: 92px;
-    right: 24px;
-    z-index: 30;
-    padding: 14px 20px;
-    border-radius: 12px;
-    background: #16a34a;
-    color: #fff;
-    font-weight: 600;
-    box-shadow: 0 10px 30px rgba(22, 163, 74, 0.22);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(18px);
-    transition: 0.3s;
+  transform: translateX(18px);
 }
 
 .register-toast.is-visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-}
-
-@keyframes registerFadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(24px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes registerSpin {
-    to {
-        transform: rotate(360deg);
-    }
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
 }
 
 @media (max-width: 992px) {
-    .register-card {
-        width: 80%;
-    }
+  .register-card {
+    width: 80%;
+  }
 }
 
 @media (max-width: 768px) {
-    .hero--register {
-        min-height: 300px;
-    }
+  .hero--register {
+    min-height: 300px;
+  }
 
-    .register-main {
-        width: 95%;
-        margin: 36px auto;
-    }
+  .register-card {
+    width: 95%;
+  }
 
-    .register-card {
-        width: 95%;
-        padding: 30px 22px;
-    }
+  .register-toast {
+    transform: translateY(12px);
+  }
 
-    .register-card__title {
-        font-size: 23px;
-    }
-
-    .register-toast {
-        top: auto;
-        right: 16px;
-        bottom: 18px;
-        left: 16px;
-        text-align: center;
-        transform: translateY(12px);
-    }
-
-    .register-toast.is-visible {
-        transform: translateY(0);
-    }
+  .register-toast.is-visible {
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 480px) {
-    .hero--register {
-        min-height: 260px;
-    }
-
-    .hero--register .hero__title {
-        font-size: 28px;
-    }
-
-    .hero--register .hero__text {
-        font-size: 14px;
-    }
+  .hero--register {
+    min-height: 260px;
+  }
 }

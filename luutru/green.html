@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -6,17 +6,31 @@
     
     <title>Green Village Mekong</title>
 
-    <link rel="shortcut icon" href="../image/android-chrome-512x512.png" type="image/png">
+    <link rel="icon" type="image/png" href="../image/android-chrome-512x512.png">
 
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="chitiet.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
 </head>
 
 <body class="detail-page">
-
+    <!--NAVBAR-->
+    <header class="navbar">
+      <div class="logo">
+        <span class="logo__text">CanTho Travel</span>
+      </div>
+      <nav class="menu" aria-label="Điều hướng chính">
+        <ul>
+          <li><a href="../home/index.html">Trang Chủ</a></li>
+          <li><a href="../khampha/dulich.html">Khám Phá</a></li>
+          <li><a href="../amthuc/amthuc.html">Ẩm Thực</a></li>
+          <li><a href="../lichtrinh/lichtrinh.html">Lịch Trình</a></li>
+          <li><a href="../luutru/luutru.html" class="active">Lưu Trú</a></li>
+          <li><a href="../login/login.html">Đăng Nhập</a></li>
+        </ul>
+      </nav>
+    </header>
 <header class="hero" style="background-image:url('image/green_avatar_637027804042757343.jpg');">
 
     <div class="hero__content">
@@ -45,13 +59,13 @@
 
     <div class="detail-gallery">
 
-        <img class="detail-gallery__image" src="image/green1.jpg" alt="Không gian Green Village Mekong 1">
+        <img class="detail-gallery__image" src="image/green1.jpg" alt="Không gian Green Village Mekong 1" loading="lazy">
 
-        <img class="detail-gallery__image" src="image/green2.jpg" alt="Không gian Green Village Mekong 2">
+        <img class="detail-gallery__image" src="image/green2.jpg" alt="Không gian Green Village Mekong 2" loading="lazy">
 
-        <img class="detail-gallery__image" src="image/green3.jpg" alt="Không gian Green Village Mekong 3">
+        <img class="detail-gallery__image" src="image/green3.jpg" alt="Không gian Green Village Mekong 3" loading="lazy">
 
-        <img class="detail-gallery__image" src="image/green4.jpg" alt="Không gian Green Village Mekong 4">
+        <img class="detail-gallery__image" src="image/green4.jpg" alt="Không gian Green Village Mekong 4" loading="lazy">
 
     </div>
 
@@ -133,10 +147,28 @@
     </section>
 
 </main>
-
+    <!--FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h2>CanTho Travel</h2>
+          <p>Hành trình khám phá vẻ đẹp Tây Đô.</p>
+        </div>
+        <div class="footer-contact">
+          <h3>Thông Tin Liên Hệ</h3>
+          <p>Email: nhom4@gmail.com</p>
+          <p>SĐT: 0123456789</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>@ 2026 nhom 4</p>
+      </div>
+    </footer>
 <button class="button button--back-to-top" type="button" aria-label="Quay lại đầu trang" data-back-to-top>↑</button>
 
 <script src="../js/main.js"></script>
-
 </body>
 </html>
+
+
+
